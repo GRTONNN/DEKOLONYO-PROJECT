@@ -1,0 +1,880 @@
+/* ========================================
+   DEKOLONYO - Fixed CSS (Content-First)
+   All content visible by default, videos optional
+   ======================================== */
+
+/* ========================================
+   BASE STYLES & RESET
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color Palette */
+    --primary-red: #ff3b30;
+    --primary-yellow: #ffe159;
+    --primary-green: #93c47d;
+    --primary-blue: #99acff;
+    --dark-blue: #3b4b6b;
+    --light-gray: #e8e8e8;
+    --dark-gray: #333;
+    --purple: #c084fc;
+    --text-dark: #2c3e50;
+    
+    /* Spacing */
+    --section-padding: 80px 10%;
+    --gap-large: 50px;
+    --gap-medium: 30px;
+    --gap-small: 20px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    color: var(--dark-gray);
+    line-height: 1.6;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, .logo-text {
+    font-family: 'Libre Baskerville', serif;
+}
+
+/* ========================================
+   NAVIGATION BAR
+   ======================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+/* Logo Styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.logo-white {
+    color: #ffffff;
+}
+
+.logo-red {
+    color: var(--primary-red);
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+    overflow: hidden;
+}
+
+/* Video background - OPTIONAL, won't block content */
+.hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.3));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: left;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 30px;
+    font-weight: 400;
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.9), 0 0 30px rgba(0,0,0,0.7);
+}
+
+/* Buttons */
+.btn-white {
+    padding: 15px 30px;
+    background-color: white;
+    color: var(--dark-gray);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-white:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* ========================================
+   COLONIAL MENTALITY SECTION
+   ======================================== */
+.mentality-section {
+    position: relative;
+    background-color: var(--primary-green);
+    padding: var(--section-padding);
+    color: var(--dark-gray);
+    min-height: 500px;
+    overflow: hidden;
+}
+
+/* Video background - OPTIONAL */
+.section-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.green-overlay {
+    background: linear-gradient(to bottom, rgba(147, 196, 125, 0.5), rgba(147, 196, 125, 0.6));
+}
+
+/* ALL CONTENT at z-index 10 - ALWAYS VISIBLE */
+.mentality-section h2,
+.mentality-section .info-grid,
+.mentality-section .info-box {
+    position: relative;
+    z-index: 10;
+}
+
+.mentality-section h2 {
+    font-size: 3rem;
+    margin-bottom: var(--gap-large);
+    font-weight: normal;
+}
+
+.highlight-red {
+    color: #e06666;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: var(--gap-medium);
+    align-items: center;
+}
+
+.info-box {
+    background: transparent;
+}
+
+.icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.megaphone-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.main-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.main-box h3 {
+    font-family: 'Helvetica', Arial, sans-serif;
+    margin-bottom: 15px;
+    color: var(--dark-gray);
+    font-style: italic;
+    font-weight: normal;
+}
+
+.small-box {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.right-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* ========================================
+   TATAK PINOY COMIC SECTION
+   ======================================== */
+.tatak-pinoy-section {
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+    padding: var(--section-padding);
+    border-top: 5px solid var(--primary-yellow);
+    border-bottom: 5px solid var(--primary-red);
+    min-height: 600px;
+}
+
+.tatak-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tatak-header {
+    text-align: center;
+    margin-bottom: var(--gap-large);
+}
+
+.tatak-header h2 {
+    font-size: 3.5rem;
+    color: var(--primary-red);
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+}
+
+.tatak-header h3 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+    font-weight: normal;
+    font-style: italic;
+}
+
+.comic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.comic-panel {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border: 3px solid var(--primary-yellow);
+}
+
+.comic-panel:hover {
+    transform: translateY(-5px);
+}
+
+.comic-illustration {
+    background: linear-gradient(135deg, #fff9e6 0%, #ffe6e6 100%);
+    border-radius: 8px;
+    padding: 30px;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border: 2px dashed var(--primary-red);
+}
+
+.thought-bubble {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--dark-gray);
+    font-weight: 500;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.comic-caption {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* ========================================
+   WHY THIS MATTERS SECTION
+   ======================================== */
+.why-matters {
+    position: relative;
+    background: linear-gradient(135deg, #7fb069 0%, #93c47d 100%);
+    padding: var(--section-padding);
+    color: var(--dark-gray);
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.why-matters .video-overlay {
+    background: linear-gradient(135deg, rgba(127, 176, 105, 0.4), rgba(147, 196, 125, 0.5));
+}
+
+.matters-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: var(--gap-large);
+    align-items: flex-start;
+}
+
+.matters-title {
+    flex: 1;
+}
+
+.matters-title h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: white;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6);
+}
+
+.matters-text {
+    flex: 2;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ========================================
+   ACTION CARDS SECTION
+   ======================================== */
+.action-section {
+    padding: var(--section-padding);
+    background-color: var(--light-gray);
+    min-height: 400px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--gap-large);
+    color: var(--text-dark);
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.action-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+}
+
+.action-card h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.action-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.btn-dark {
+    padding: 12px 30px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ========================================
+   DONATE SECTION
+   ======================================== */
+.donate-section {
+    background-color: var(--dark-blue);
+    padding: var(--section-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-white {
+    color: #ffffff;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.donate-widget {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 35px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+    transition: transform 0.3s ease;
+}
+
+.donate-widget:hover {
+    transform: scale(1.02);
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.widget-header h3 {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+    font-weight: bold;
+}
+
+.heart-icon {
+    font-size: 2.5rem;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.raised {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-gray);
+}
+
+.goal {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--purple) 0%, #a855f7 100%);
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out;
+}
+
+.btn-purple {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--purple) 0%, #a855f7 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-purple:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(192, 132, 252, 0.4);
+}
+
+.widget-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 15px;
+}
+
+/* ========================================
+   MISSION SECTION
+   ======================================== */
+.mission-section {
+    padding: var(--section-padding);
+    background-color: #ffffff;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+}
+
+.mission-column h3 {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--dark-gray);
+    font-weight: bold;
+}
+
+.mission-column p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+.contact-section {
+    background-color: #000000;
+    padding: var(--section-padding);
+    color: #ffffff;
+}
+
+.contact-section h2 {
+    font-size: 3rem;
+    margin-bottom: var(--gap-large);
+    font-weight: normal;
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--gap-medium);
+}
+
+.contact-block h4 {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #cccccc;
+}
+
+.contact-block p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 1.5rem;
+}
+
+.social-icons a {
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+/* ========================================
+   BACK TO TOP BUTTON
+   ======================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #cc2f25;
+    transform: translateY(-5px);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: 60px 8%;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .mentality-section h2,
+    .matters-title h2 {
+        font-size: 2.5rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .matters-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .tatak-header h2 {
+        font-size: 2.8rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 50px 6%;
+    }
+    
+    /* Hide videos on mobile for performance */
+    .section-video-bg,
+    .hero-video-bg {
+        display: none !important;
+    }
+    
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .nav-links.active {
+        max-height: 300px;
+    }
+    
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero {
+        min-height: 70vh;
+        padding: 0 6%;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .btn-white {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .mentality-section h2,
+    .section-title,
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+    
+    .matters-title h2 {
+        font-size: 2.2rem;
+    }
+    
+    .tatak-header h2 {
+        font-size: 2rem;
+    }
+    
+    .tatak-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .comic-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-grid,
+    .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contact-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .donate-widget {
+        padding: 25px;
+    }
+    
+    .matters-text {
+        padding: 25px;
+    }
+}
